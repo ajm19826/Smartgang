@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .class-btn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .class-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .math { background-color: #ff7675; }
+        .science { background-color: #74b9ff; }
+        .tech { background-color: #55efc4; }
+        .history { background-color: #fdcb6e; }
+
+        .form-container {
+            display: none;
+            margin-top: 30px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        input, button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
+            max-width: 300px;
+        }
+
+        button {
+            background-color: #2d3436;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #636e72;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Choose a Class to Sign Up</h1>
+
+    <div class="container">
+        <button class="class-btn math" onclick="showForm('Math')">Math</button>
+        <button class="class-btn science" onclick="showForm('Science')">Science</button>
+        <button class="class-btn tech" onclick="showForm('Tech')">Tech</button>
+        <button class="class-btn history" onclick="showForm('History')">History</button>
+    </div>
+
+    <div id="signup-form" class="form-container">
+        <h2 id="class-title"></h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        function showForm(className) {
+            document.getElementById('class-title').innerText = `Sign Up for ${className}`;
+            document.getElementById('signup-form').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
